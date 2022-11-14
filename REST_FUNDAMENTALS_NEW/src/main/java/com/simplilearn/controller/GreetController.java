@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.simplilearn.pojo.Greet;
 
+//@RestController = @Controller + @ResponseBody
 @RestController
 public class GreetController {
 	
 	//@GetMapping("/greet")
-	@RequestMapping(value="/greet", method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/greet", method= RequestMethod.GET, consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
+	//use @ResponseBody here if not using @RestController
 	public Greet greetMe() {
 		Greet greet = new Greet();
 		greet.setName("Savyata");
